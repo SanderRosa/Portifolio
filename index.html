@@ -3,29 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sander Cardoso da Rosa | Portfólio Técnico</title>
-  <meta name="description" content="Portfólio técnico de Sander Cardoso da Rosa — Engenharia de Controle e Automação, IoT, sistemas embarcados, automação industrial, IA aplicada e visão computacional." />
+  <title>Sander Cardoso da Rosa | Engenharia de Controle e Automação</title>
+  <meta name="description" content="Portfólio técnico de Sander Cardoso da Rosa — Engenheiro em formação, focado em Sistemas Embarcados, IoT, Automação Industrial e Visão Computacional." />
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
 
     :root {
-      --bg: #030712;
-      --bg-soft: #0b1329;
-      --card: rgba(11, 19, 41, 0.65);
-      --card-strong: rgba(15, 23, 42, 0.85);
-      --text: #f1f5f9;
+      --bg: #090e1a;
+      --bg-card: rgba(15, 23, 42, 0.7);
+      --border: rgba(0, 242, 254, 0.2);
+      --text: #f8fafc;
       --muted: #94a3b8;
-      --soft: #cbd5e1;
-      --line: rgba(0, 242, 254, 0.15);
-      --neon-cyan: #00f2fe;
-      --neon-green: #00ff87;
-      --neon-blue: #4facfe;
+      --cyan: #00f2fe;
+      --blue: #4facfe;
+      --green: #00ff87;
       --purple: #a78bfa;
-      --yellow: #fbbf24;
-      --red: #fb7185;
-      --shadow: 0 0 30px rgba(0, 242, 254, 0.15);
-      --radius: 16px;
+      --yellow: #facc15;
+      --radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * {
@@ -39,1269 +35,672 @@
     }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Outfit', sans-serif;
       background-color: var(--bg);
       background-image: 
-        radial-gradient(circle at 20% 30%, rgba(0, 242, 254, 0.15), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(167, 139, 250, 0.1), transparent 40%),
-        linear-gradient(rgba(0, 242, 254, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 242, 254, 0.03) 1px, transparent 1px);
-      background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+        radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.05), transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(79, 172, 254, 0.05), transparent 40%);
       color: var(--text);
-      line-height: 1.65;
-      min-height: 100vh;
-    }
-
-    /* Tipografia Técnica */
-    .tech-data {
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
     .container {
-      width: min(1160px, calc(100% - 32px));
+      width: min(1200px, calc(100% - 40px));
       margin: 0 auto;
     }
 
+    /* Navbar */
     .nav {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      background: rgba(3, 7, 18, 0.75);
-      border-bottom: 1px solid var(--line);
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(9, 14, 26, 0.8);
     }
 
     .nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 18px;
       padding: 16px 0;
     }
 
     .brand {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--text);
+      text-decoration: none;
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      white-space: nowrap;
     }
 
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
-      box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
-      color: #030712;
-      font-size: 1.2rem;
+    .brand span {
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .nav-links {
       display: flex;
+      gap: 24px;
       align-items: center;
-      gap: 20px;
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 600;
     }
 
     .nav-links a {
-      transition: color 0.2s ease, text-shadow 0.2s ease;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
     }
 
     .nav-links a:hover {
-      color: var(--neon-cyan);
-      text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+      color: var(--cyan);
     }
 
     .nav-cta {
-      border: 1px solid var(--neon-cyan);
-      color: var(--neon-cyan);
-      padding: 8px 16px;
-      border-radius: 4px;
+      border: 1px solid var(--cyan);
+      color: var(--cyan) !important;
+      padding: 8px 18px;
+      border-radius: 6px;
       background: rgba(0, 242, 254, 0.05);
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 500;
-      transition: all 0.3s ease;
     }
 
     .nav-cta:hover {
-      background: rgba(0, 242, 254, 0.2);
-      box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+      background: rgba(0, 242, 254, 0.15);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
     }
 
+    /* Hero Section */
     .hero {
-      padding: 72px 0 44px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    /* Glassmorphism Cards */
-    .hero-main,
-    .hero-side,
-    .section-card,
-    .project-card,
-    .mini-card,
-    .cert-card {
-      border: 1px solid var(--line);
-      background: var(--card);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .hero-main {
-      padding: 38px;
+      padding: 100px 0 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       position: relative;
-      overflow: hidden;
     }
 
-    .hero-main::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--neon-cyan), var(--neon-blue));
-    }
-
-    .status-pill {
-      display: inline-flex;
+    .hero-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--green);
+      border: 1px solid rgba(0, 255, 135, 0.2);
+      background: rgba(0, 255, 135, 0.05);
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      display: flex;
       align-items: center;
       gap: 8px;
-      border: 1px solid rgba(0, 255, 135, 0.3);
-      background: rgba(0, 255, 135, 0.05);
-      color: var(--neon-green);
-      border-radius: 4px;
-      padding: 6px 12px;
-      font-weight: 600;
-      font-size: 0.82rem;
-      margin-bottom: 22px;
-      font-family: 'JetBrains Mono', monospace;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
-    .pulse {
+    .hero-badge span {
       width: 8px;
       height: 8px;
-      background: var(--neon-green);
+      background: var(--green);
       border-radius: 50%;
-      box-shadow: 0 0 10px var(--neon-green);
-      animation: pulse-glow 2s infinite;
+      box-shadow: 0 0 10px var(--green);
     }
 
-    @keyframes pulse-glow {
-      0% { box-shadow: 0 0 0 0 rgba(0, 255, 135, 0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(0, 255, 135, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(0, 255, 135, 0); }
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      line-height: 0.98;
-      letter-spacing: -0.05em;
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
       margin-bottom: 16px;
-      font-weight: 900;
+      letter-spacing: -0.03em;
     }
 
-    .gradient-text {
-      background: linear-gradient(90deg, #ffffff, var(--neon-cyan));
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
-    .hero-subtitle {
-      font-size: clamp(1.04rem, 2vw, 1.25rem);
+    .hero p {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
       color: var(--soft);
-      max-width: 760px;
-      margin-bottom: 24px;
+      max-width: 700px;
+      margin-bottom: 32px;
+      color: var(--muted);
     }
 
     .hero-actions {
       display: flex;
+      gap: 16px;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      border-radius: 4px;
-      padding: 12px 20px;
-      font-weight: 700;
-      font-family: 'JetBrains Mono', monospace;
-      border: 1px solid var(--line);
-      transition: all 0.3s ease;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
       cursor: pointer;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
-    }
-
     .btn-primary {
-      background: rgba(0, 242, 254, 0.1);
-      color: var(--neon-cyan);
-      border-color: var(--neon-cyan);
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #090e1a;
     }
 
     .btn-primary:hover {
-      background: rgba(0, 242, 254, 0.2);
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
+      transform: translateY(-2px);
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
       color: var(--text);
+      background: rgba(255, 255, 255, 0.02);
     }
 
     .btn-secondary:hover {
       background: rgba(255, 255, 255, 0.05);
-    }
-
-    .hero-side {
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .profile-box {
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 18px;
-    }
-
-    .profile-box h2 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-      color: var(--neon-cyan);
-    }
-
-    .profile-box p {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .quick-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .quick-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: var(--soft);
-      font-size: 0.93rem;
-    }
-
-    .quick-item span:first-child {
-      color: var(--neon-cyan);
-      font-size: 1.05rem;
-      width: 20px;
-    }
-
-    .section {
-      padding: 42px 0;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 18px;
-      margin-bottom: 22px;
-    }
-
-    .section-kicker {
-      color: var(--neon-cyan);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
-    }
-
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      font-weight: 800;
-    }
-
-    .section-description {
-      color: var(--muted);
-      max-width: 560px;
-      font-size: 0.98rem;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .stat {
-      padding: 18px;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      background: rgba(3, 7, 18, 0.4);
-      text-align: center;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 2rem;
-      line-height: 1;
-      color: var(--neon-cyan);
-      margin-bottom: 6px;
-      font-family: 'JetBrains Mono', monospace;
-      text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.86rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-    }
-
-    .skill-chip {
-      border: 1px solid var(--line);
-      background: rgba(3, 7, 18, 0.4);
-      border-radius: 8px;
-      padding: 14px;
-      min-height: 92px;
-      transition: all 0.3s ease;
-    }
-
-    .skill-chip:hover {
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+      border-color: var(--cyan);
       transform: translateY(-2px);
     }
 
-    .skill-chip b {
-      display: block;
-      margin-bottom: 6px;
-      color: #f8fafc;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.95rem;
+    /* Section Global */
+    .section {
+      padding: 80px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
     }
 
-    .skill-chip span {
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
+      border-radius: 2px;
+    }
+
+    /* Sobre Mim */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 18px;
       color: var(--muted);
-      font-size: 0.84rem;
+      font-size: 1.05rem;
     }
 
-    .filter-bar {
+    .about-text strong {
+      color: var(--cyan);
+    }
+
+    /* Projetos */
+    .projects-filter {
       display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 22px;
     }
 
     .filter-btn {
-      border: 1px solid var(--line);
       background: rgba(255, 255, 255, 0.02);
-      color: var(--soft);
+      border: 1px solid var(--border);
+      color: var(--muted);
       padding: 8px 16px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 700;
+      border-radius: 6px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.85rem;
-      transition: all 0.3s ease;
+      cursor: pointer;
+      transition: var(--transition);
     }
 
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: rgba(0, 242, 254, 0.1);
-      border-color: var(--neon-cyan);
-      color: var(--neon-cyan);
-      box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+    .filter-btn:hover, .filter-btn.active {
+      color: var(--cyan);
+      border-color: var(--cyan);
+      background: rgba(0, 242, 254, 0.05);
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
     }
 
     .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      transition: var(--transition);
     }
 
     .project-card:hover {
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
-      transform: translateY(-4px);
+      border-color: var(--cyan);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);
     }
 
-    .project-media {
-      height: 230px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(0, 255, 135, 0.05));
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-media img {
+    .project-img {
+      height: 220px;
       width: 100%;
-      height: 100%;
       object-fit: cover;
+      border-bottom: 1px solid var(--border);
     }
 
-    .media-placeholder {
-      height: 100%;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    .media-placeholder .big-icon {
-      font-size: 3.2rem;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .media-placeholder b {
-      color: var(--text);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .project-body {
-      padding: 22px;
+    .project-content {
+      padding: 24px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
-    .project-top {
+    .project-header {
       display: flex;
       justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 10px;
       align-items: flex-start;
-    }
-
-    .project-title {
-      font-size: 1.18rem;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-      font-weight: 700;
-      color: var(--neon-cyan);
-    }
-
-    .project-status {
-      flex: 0 0 auto;
-      font-size: 0.72rem;
-      font-weight: 800;
-      border: 1px solid rgba(0, 255, 135, 0.3);
-      border-radius: 4px;
-      padding: 4px 8px;
-      color: var(--neon-green);
-      background: rgba(0, 255, 135, 0.05);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .project-summary {
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-bottom: 14px;
-    }
-
-    .project-highlights {
-      list-style: none;
-      display: grid;
-      gap: 8px;
       margin-bottom: 16px;
     }
 
-    .project-highlights li {
-      color: var(--soft);
-      font-size: 0.87rem;
-      display: flex;
-      gap: 8px;
-    }
-
-    .project-highlights li::before {
-      content: '>';
-      color: var(--neon-cyan);
-      font-family: 'JetBrains Mono', monospace;
+    .project-name {
+      font-size: 1.3rem;
       font-weight: 700;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: auto;
-    }
-
-    .tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--neon-cyan);
-      background: rgba(0, 242, 254, 0.05);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      padding: 4px 8px;
-    }
-
-    .tag.ai { color: var(--purple); background: rgba(167, 139, 250, 0.05); }
-    .tag.hw { color: var(--neon-green); background: rgba(0, 255, 135, 0.05); }
-    .tag.cv { color: var(--yellow); background: rgba(251, 191, 36, 0.05); }
-
-    .project-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 16px;
-    }
-
-    .small-link {
-      color: var(--neon-cyan);
-      border: 1px solid rgba(0, 242, 254, 0.2);
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      font-family: 'JetBrains Mono', monospace;
-      background: rgba(0, 242, 254, 0.02);
-      transition: all 0.3s ease;
-    }
-
-    .small-link:hover {
-      background: rgba(0, 242, 254, 0.1);
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
-    }
-
-    .timeline {
-      display: grid;
-      gap: 16px;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 18px 18px 18px 24px;
-      border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: 8px;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: linear-gradient(180deg, var(--neon-cyan), var(--neon-blue));
-    }
-
-    .timeline-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-
-    .timeline-head h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--neon-cyan);
-    }
-
-    .date {
-      color: var(--neon-cyan);
-      font-weight: 700;
-      font-size: 0.88rem;
-      font-family: 'JetBrains Mono', monospace;
-      white-space: nowrap;
-    }
-
-    .timeline-item ul {
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .timeline-item ul li {
-      margin-bottom: 6px;
-    }
-
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .cert-card {
-      padding: 18px;
-      min-height: 170px;
-    }
-
-    .cert-card .icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      background: rgba(0, 242, 254, 0.1);
-      color: var(--neon-cyan);
-      margin-bottom: 12px;
-      font-size: 1.35rem;
-      box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
-    }
-
-    .cert-card h3 {
-      font-size: 1.03rem;
-      line-height: 1.3;
-      margin-bottom: 6px;
       color: var(--text);
     }
 
-    .cert-card .meta {
+    .project-tag {
       font-family: 'JetBrains Mono', monospace;
-      color: var(--neon-cyan);
-      font-size: 0.78rem;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-size: 0.75rem;
+      color: var(--cyan);
+      background: rgba(0, 242, 254, 0.05);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 242, 254, 0.15);
     }
 
-    .cert-card p {
+    .project-details {
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .detail-item {
+      margin-bottom: 12px;
       color: var(--muted);
-      font-size: 0.88rem;
     }
 
-    .two-col {
+    .detail-item strong {
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+
+    .tech-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Stack */
+    .stack-grid {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 18px;
-      align-items: start;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
 
-    .section-card {
+    .stack-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       padding: 24px;
+      border-radius: var(--radius);
+      text-align: center;
+      transition: var(--transition);
     }
 
-    .section-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 14px;
-      color: var(--neon-cyan);
+    .stack-card:hover {
+      border-color: var(--cyan);
+      transform: scale(1.05);
+    }
+
+    .stack-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .stack-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Experiência */
+    .exp-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .exp-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: var(--radius);
+      border-left: 4px solid var(--cyan);
+    }
+
+    .exp-title {
+      font-size: 1.2rem;
       font-weight: 700;
+      color: var(--text);
     }
 
-    .bullet-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px 24px;
-      padding-left: 18px;
-      color: var(--soft);
-      font-size: 0.92rem;
+    .exp-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--cyan);
+      margin: 4px 0 12px;
     }
 
-    .bullet-grid li {
-      margin-bottom: 4px;
+    .exp-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
+    /* Contato */
+    .contact-wrapper {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-text {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    /* Footer */
     .footer {
-      border-top: 1px solid var(--line);
-      margin-top: 42px;
-      padding: 30px 0 44px;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 40px 0;
       text-align: center;
       color: var(--muted);
       font-size: 0.9rem;
-    }
-
-    .footer strong {
-      color: var(--neon-cyan);
     }
 
     .hide {
       display: none !important;
     }
 
-    @media (max-width: 980px) {
-      .hero-grid,
-      .two-col,
-      .projects-grid,
-      .cert-grid {
+    @media (max-width: 768px) {
+      .about-grid, .projects-grid {
         grid-template-columns: 1fr;
       }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       .nav-links {
         display: none;
       }
     }
-
-    @media (max-width: 620px) {
-      .container {
-        width: min(100% - 22px, 1160px);
-      }
-
-      .hero {
-        padding-top: 38px;
-      }
-
-      .hero-main,
-      .hero-side,
-      .section-card,
-      .project-body {
-        padding: 20px;
-      }
-
-      .stats-grid,
-      .skills-grid,
-      .bullet-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project-media {
-        height: 190px;
-      }
-
-      .timeline-head {
-        flex-direction: column;
-      }
-    }
   </style>
-
 </head>
 <body>
+
+  <!-- Navbar -->
   <nav class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Voltar ao topo">
-        <span class="brand-mark">⚙️</span>
+      <a class="brand" href="#">
         <span>Sander Cardoso</span>
       </a>
-
-      <div class="nav-links" aria-label="Navegação principal">
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
         <a href="#projetos">Projetos</a>
-        <a href="#experiencia">Experiência</a>
-        <a href="#certificados">Certificados</a>
+        <a href="#stack">Stack</a>
         <a href="#contato" class="nav-cta">Contato</a>
       </div>
     </div>
   </nav>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-main">
-          <div class="status-pill"><span class="pulse"></span> Em busca de estágio técnico</div>
-          <h1><span class="gradient-text">Sander Cardoso da Rosa</span></h1>
-          <p class="hero-subtitle">
-            Estudante de Engenharia de Controle e Automação com portfólio prático em automação, IoT,
-            sistemas embarcados, IA aplicada e visão computacional.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="assets/curriculos/Sander_Cardoso_Curriculo_ATS.pdf" target="_blank" rel="noopener">📄 Baixar currículo ATS</a>
-            <a class="btn btn-secondary" href="https://github.com/SanderRosa" target="_blank" rel="noopener">💻 GitHub</a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/sander-cardoso-rosa-591632338/" target="_blank" rel="noopener">🔗 LinkedIn</a>
-          </div>
-
-          <div class="stats-grid" aria-label="Resumo do portfólio">
-            <div class="stat"><strong>8</strong><span>Projetos técnicos</span></div>
-            <div class="stat"><strong>3</strong><span>Projetos IoT/HW</span></div>
-            <div class="stat"><strong>3</strong><span>Projetos com IA/dados</span></div>
-            <div class="stat"><strong>2026</strong><span>Eng. Controle e Automação</span></div>
-          </div>
-        </div>
-
-        <aside class="hero-side">
-          <div class="profile-box">
-            <h2>Foco profissional</h2>
-            <p>Automação industrial, sistemas embarcados, integração hardware/software, IoT e software aplicado à engenharia.</p>
-          </div>
-
-          <div class="quick-list">
-            <div class="quick-item"><span>📍</span><span>Porto Alegre — RS</span></div>
-            <div class="quick-item"><span>📧</span><a href="mailto:rosasandercardoso@gmail.com">rosasandercardoso@gmail.com</a></div>
-            <div class="quick-item"><span>📱</span><a href="tel:+5551989543839">(51) 98954-3839</a></div>
-            <div class="quick-item"><span>🎓</span><span>UERGS — Engenharia de Controle e Automação</span></div>
-          </div>
-        </aside>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-badge"><span></span> Engenheiro de Controle e Automação em formação</div>
+      <h1>Sistemas Inteligentes e <span>Automação Aplicada</span></h1>
+      <p>Desenvolvendo soluções onde o hardware encontra o software. Focado em sistemas embarcados, IoT e resolução de problemas industriais com inteligência artificial.</p>
+      <div class="hero-actions">
+        <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+        <a href="#contato" class="btn btn-secondary">Entrar em contato</a>
       </div>
-    </section>
+    </div>
+  </header>
 
-    <section class="section" id="sobre">
-      <div class="container two-col">
-        <div class="section-card">
-          <div class="section-kicker">Resumo</div>
-          <h2 class="section-title">Perfil técnico</h2>
-          <p class="section-description">
-            Perfil autodidata, proativo e orientado à aplicação prática. Busco estágio em Engenharia de Controle,
-            Automação, IoT ou Sistemas Embarcados, com foco em projetos que integrem software, eletrônica,
-            sensores, atuadores, controle e sistemas industriais.
-          </p>
-        </div>
-
-        <div class="section-card">
-          <div class="section-kicker">Base</div>
-          <h2 class="section-title">Competências</h2>
-          <ul class="bullet-grid">
-            <li>Python, C, C++</li>
-            <li>TypeScript / JavaScript</li>
-            <li>ESP32 e Arduino</li>
-            <li>Flask / Flask-SocketIO</li>
-            <li>React e APIs REST</li>
-            <li>Ollama / LLMs locais</li>
-            <li>OpenCV / NumPy</li>
-            <li>SQLite / Docker</li>
-          </ul>
+  <!-- Sobre Mim -->
+  <section class="section" id="sobre">
+    <div class="container about-grid">
+      <div>
+        <h2 class="section-title">Engenharia de Controle</h2>
+        <div class="about-text">
+          <p>Olá, sou o <strong>Sander Cardoso da Rosa</strong>. Como estudante de Engenharia de Controle e Automação na UERGS, me dedico a entender a fundo como automatizar processos complexos de forma robusta e otimizada.</p>
+          <p>Meu foco não é apenas programar interfaces web, mas integrar <strong>microcontroladores, sensores e algoritmos</strong> capazes de transformar dados do mundo físico em comandos digitais executáveis.</p>
+          <p>Busco uma oportunidade de <strong>estágio técnico</strong> onde eu possa aplicar minha base em C/C++, Python e hardware para criar valor no chão de fábrica ou no desenvolvimento de produtos IoT.</p>
         </div>
       </div>
-    </section>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 30px; border-radius: var(--radius);">
+        <h3 style="margin-bottom: 18px; color: var(--cyan);">Diferenciais Técnicos</h3>
+        <ul style="list-style: none; color: var(--muted); font-size: 1rem; display: flex; flex-direction: column; gap: 14px;">
+          <li>🔒 <strong>Sistemas Embarcados:</strong> Desenvolvimento escalável em C++ e FreeRTOS conceitual.</li>
+          <li>🌐 <strong>Protocolos IoT:</strong> Integração Wi-Fi, WebSockets e controle assíncrono.</li>
+          <li>🤖 <strong>IA na Engenharia:</strong> Visão computacional e processamento de sinais aplicados.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <section class="section" id="tecnologias">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Stack</div>
-            <h2 class="section-title">Tecnologias e áreas</h2>
+  <!-- Projetos -->
+  <section class="section" id="projetos">
+    <div class="container">
+      <h2 class="section-title">Casos Técnicos</h2>
+      
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="embarcados">Hardware & Embarcados</button>
+        <button class="filter-btn" data-filter="software">Algoritmos & IA</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- PROJETO 1 -->
+        <article class="project-card" data-category="software">
+          <img class="project-img" src="assets/projetos/nexus-control.png" alt="Interface Nexus Control">
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-name">NEXUS CONTROL</h3>
+              <span class="project-tag">Engenharia AI</span>
+            </div>
+            <div class="project-details">
+              <div class="detail-item"><strong>📌 Problema:</strong> Monitoramento e programação de CLP de forma manual e inflexível em chão de fábrica.</div>
+              <div class="detail-item"><strong>⚙️ Solução:</strong> Criação de uma plataforma Multi-Agent local que gera códigos Ladder/Structured Text e renderiza interfaces SCADA via linguagem natural.</div>
+              <div class="detail-item"><strong>📊 Resultado:</strong> Redução drástica no tempo de programação de rotinas industriais operando 100% offline (segurança de dados).</div>
+            </div>
+            <div class="project-tech">
+              <span class="tech-pill">Python</span><span class="tech-pill">Ollama</span><span class="tech-pill">Flask</span><span class="tech-pill">React</span>
+            </div>
+            <a class="btn btn-secondary" style="font-size: 0.85rem; padding: 8px 16px; text-align: center;" href="https://github.com/SanderRosa/Nexus-Control" target="_blank">Ver Repositório</a>
           </div>
-          <p class="section-description">Organização das principais competências por área de aplicação.</p>
+        </article>
+
+        <!-- PROJETO 2 -->
+        <article class="project-card" data-category="embarcados">
+          <img class="project-img" src="assets/projetos/genius-ui.png" alt="Interface Genius Memory">
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-name">Genius IoT ESP32</h3>
+              <span class="project-tag">Sistemas Embarcados</span>
+            </div>
+            <div class="project-details">
+              <div class="detail-item"><strong>📌 Problema:</strong> Criação de sistemas IoT com código bloqueante que travam leituras de sinais elétricos.</div>
+              <div class="detail-item"><strong>⚙️ Solução:</strong> Jogo Genius completo usando programação assíncrona orientada a objetos (millis()) integrada a um servidor Web direto na placa.</div>
+              <div class="detail-item"><strong>📊 Resultado:</strong> Latência zero na interface dinâmica com zero travamentos elétricos (Debounce de botões).</div>
+            </div>
+            <div class="project-tech">
+              <span class="tech-pill">C++ (Arduino)</span><span class="tech-pill">ESP32</span><span class="tech-pill">WebSockets</span><span class="tech-pill">POO</span>
+            </div>
+            <a class="btn btn-secondary" style="font-size: 0.85rem; padding: 8px 16px; text-align: center;" href="https://github.com/SanderRosa/GeniusESP32" target="_blank">Ver Repositório</a>
+          </div>
+        </article>
+
+        <!-- PROJETO 3 -->
+        <article class="project-card" data-category="software">
+          <img class="project-img" src="assets/projetos/contador-ovos.jpg" alt="Contador de Ovos">
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-name">Visão Computacional OpenCV</h3>
+              <span class="project-tag">Processamento de Imagens</span>
+            </div>
+            <div class="project-details">
+              <div class="detail-item"><strong>📌 Problema:</strong> Contagem manual demorada e suscetível a falhas humanas de ovos de C. elegans em laboratório.</div>
+              <div class="detail-item"><strong>⚙️ Solução:</strong> Pipeline automatizado utilizando filtros CLAHE de contraste, binarização adaptativa e detecção de centroides morfológicos.</div>
+              <div class="detail-item"><strong>📊 Resultado:</strong> Inspeção visual automatizada em frações de segundos com alta acurácia.</div>
+            </div>
+            <div class="project-tech">
+              <span class="tech-pill">Python</span><span class="tech-pill">OpenCV</span><span class="tech-pill">NumPy</span><span class="tech-pill">Filtros Digitais</span>
+            </div>
+            <a class="btn btn-secondary" style="font-size: 0.85rem; padding: 8px 16px; text-align: center;" href="https://github.com/SanderRosa/Contador-de-OVOS-de-C-elegans-Python" target="_blank">Ver Repositório</a>
+          </div>
+        </article>
+
+        <!-- PROJETO 4 -->
+        <article class="project-card" data-category="embarcados">
+          <img class="project-img" src="assets/projetos/logisim-circuito.png" alt="Circuito Logisim">
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-name">Simulação Logisim-Evolution</h3>
+              <span class="project-tag">Arquitetura de Hardware</span>
+            </div>
+            <div class="project-details">
+              <div class="detail-item"><strong>📌 Problema:</strong> Mapeamento e fluxo lógico de instruções de endereçamento de memória RAM.</div>
+              <div class="detail-item"><strong>⚙️ Solução:</strong> Circuitos sequenciais utilizando registradores, flip-flops, multiplexadores e blocos ROM.</div>
+              <div class="detail-item"><strong>📊 Resultado:</strong> Entendimento aprofundado sobre arquitetura de dados computacionais em nível físico.</div>
+            </div>
+            <div class="project-tech">
+              <span class="tech-pill">Logisim</span><span class="tech-pill">Flip-Flops</span><span class="tech-pill">Portas Lógicas</span>
+            </div>
+            <a class="btn btn-secondary" style="font-size: 0.85rem; padding: 8px 16px; text-align: center;" href="https://github.com/SanderRosa/Cirucuito-Logico-Logisim" target="_blank">Ver Repositório</a>
+          </div>
+        </article>
+
+        <!-- PROJETO 5 -->
+        <article class="project-card" data-category="embarcados">
+          <img class="project-img" src="assets/projetos/arduino-eeprom.png" alt="Circuito Arduino">
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-name">Coletor de Dados com EEPROM</h3>
+              <span class="project-tag">Sistemas Embarcados</span>
+            </div>
+            <div class="project-details">
+              <div class="detail-item"><strong>📌 Problema:</strong> Perda de dados operacionais e logs em falhas de energia da CPU.</div>
+              <div class="detail-item"><strong>⚙️ Solução:</strong> Algoritmo em C++ que manipula a memória não volátil EEPROM do microcontrolador para guardar dados em anel.</div>
+              <div class="detail-item"><strong>📊 Resultado:</strong> Robustez na retenção de telemetria mesmo após desligamento repentino.</div>
+            </div>
+            <div class="project-tech">
+              <span class="tech-pill">Arduino</span><span class="tech-pill">C++</span><span class="tech-pill">EEPROM</span>
+            </div>
+            <a class="btn btn-secondary" style="font-size: 0.85rem; padding: 8px 16px; text-align: center;" href="https://github.com/SanderRosa/projeto-arduino-temperatura" target="_blank">Ver Repositório</a>
+          </div>
+        </article>
+
+        <!-- PROJETO 6 -->
+        <article class="project-card" data-category="software">
+          <img class="project-img" src="assets/projetos/sistema-grow.png" alt="Sistema Grow">
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-name">Sistema Especialista GROW</h3>
+              <span class="project-tag">Lógica e Regras</span>
+            </div>
+            <div class="project-details">
+              <div class="detail-item"><strong>📌 Problema:</strong> Manutenção de variáveis críticas de cultivo indoor sem supervisão.</div>
+              <div class="detail-item"><strong>⚙️ Solução:</strong> Motor baseado em regras SE-ENTÃO com banco de dados de persistência SQLite.</div>
+              <div class="detail-item"><strong>📊 Resultado:</strong> Automação confiável das janelas de atuação das bombas e exaustores.</div>
+            </div>
+            <div class="project-tech">
+              <span class="tech-pill">Python</span><span class="tech-pill">SQLite</span><span class="tech-pill">If-Else Engine</span>
+            </div>
+            <a class="btn btn-secondary" style="font-size: 0.85rem; padding: 8px 16px; text-align: center;" href="https://github.com/SanderRosa/SISTEMA-ESPECIALISTA-GROW" target="_blank">Ver Repositório</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack Técnica -->
+  <section class="section" id="stack">
+    <div class="container">
+      <h2 class="section-title">Stack de Engenharia</h2>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <h3 style="color: var(--cyan);">Linguagens</h3>
+          <p>C, C++, Python, TypeScript, Structured Text</p>
         </div>
-
-        <div class="skills-grid">
-          <div class="skill-chip">
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--neon-green); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
-              <span class="pulse" style="width: 6px; height: 6px;"></span> SYSTEM ONLINE
-            </div>
-            <b>Programação</b>
-            <span>Python, C, C++, POO, lógica e estruturação de sistemas.</span>
-          </div>
-          <div class="skill-chip">
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--neon-cyan); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
-              <span class="pulse" style="width: 6px; height: 6px; background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan);"></span> HW CONNECTED
-            </div>
-            <b>Embarcados</b>
-            <span>ESP32, Arduino, sensores, atuadores, EEPROM e máquinas de estado.</span>
-          </div>
-          <div class="skill-chip">
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--neon-cyan); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
-              <span class="pulse" style="width: 6px; height: 6px; background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan);"></span> LINK ACTIVE
-            </div>
-            <b>Web técnico</b>
-            <span>Flask, React, APIs REST, WebSockets e interfaces de controle.</span>
-          </div>
-          <div class="skill-chip">
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--purple); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
-              <span class="pulse" style="width: 6px; height: 6px; background: var(--purple); box-shadow: 0 0 10px var(--purple);"></span> DATA PROCESSING
-            </div>
-            <b>IA e dados</b>
-            <span>Ollama, LLMs locais, visão computacional, OpenCV, NumPy e SQLite.</span>
-          </div>
-          <div class="skill-chip">
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--neon-green); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
-              <span class="pulse" style="width: 6px; height: 6px;"></span> LOGIC READY
-            </div>
-            <b>Automação</b>
-            <span>CLP iniciante, SCADA conceitual, eletrônica digital e Logisim.</span>
-          </div>
+        <div class="stack-card">
+          <h3 style="color: var(--cyan);">Firmware</h3>
+          <p>ESP32, Arduino IDE, FreeRTOS, GPIOs, SPI/I2C</p>
+        </div>
+        <div class="stack-card">
+          <h3 style="color: var(--cyan);">Controle</h3>
+          <p>Lógica de Estados, CLP Básico, Simulação Logisim</p>
+        </div>
+        <div class="stack-card">
+          <h3 style="color: var(--cyan);">Dados / Web</h3>
+          <p>SQLite, OpenCV, Flask, Docker, WebSockets</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="projetos">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Portfólio</div>
-            <h2 class="section-title">Projetos técnicos</h2>
-          </div>
-          <p class="section-description">Acesse o código-fonte completo de cada projeto nos meus repositórios do GitHub.</p>
-        </div>
-
-        <div class="filter-bar" role="toolbar" aria-label="Filtro de projetos">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="ia">IA / Dados</button>
-          <button class="filter-btn" data-filter="iot">IoT / Embarcados</button>
-          <button class="filter-btn" data-filter="software">Software</button>
-          <button class="filter-btn" data-filter="automacao">Automação</button>
-        </div>
-
-        <div class="projects-grid">
-          <!-- PROJETO 1 -->
-          <article class="project-card" data-category="ia software automacao">
-            <div class="project-media">
-              <img src="assets/projetos/nexus-control.png" alt="Interface da plataforma Nexus Control" />
-            </div>
-            <div class="project-body">
-              <div class="project-top">
-                <h3 class="project-title">NEXUS CONTROL — Plataforma de Automação com IA</h3>
-                <span class="project-status">Em desenvolvimento</span>
-              </div>
-              <p class="project-summary">Plataforma full-stack voltada à Engenharia de Controle e Automação, integrando IA local, backend em Flask e interface em React/TypeScript.</p>
-              <ul class="project-highlights">
-                <li>Arquitetura multiagente com agentes especializados.</li>
-                <li>Comunicação em tempo real com Flask-SocketIO.</li>
-                <li>Visualizações industriais: dashboard, CLP, IHM, SCADA e Arduino/Wokwi.</li>
-              </ul>
-              <div class="tag-row">
-                <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag ai">Ollama</span><span class="tag">Docker</span>
-              </div>
-              <div class="project-links">
-                <a class="small-link" href="https://github.com/SanderRosa/Nexus-Control" target="_blank" rel="noopener">Repositório no GitHub</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJETO 2 -->
-          <article class="project-card" data-category="iot automacao software">
-            <div class="project-media">
-              <img src="assets/projetos/genius-ui.png" alt="Interface web do jogo Genius no ESP32" />
-            </div>
-            <div class="project-body">
-              <div class="project-top">
-                <h3 class="project-title">Genius IoT ESP32 — Sistema Embarcado com Interface Web</h3>
-                <span class="project-status">Projeto prático</span>
-              </div>
-              <p class="project-summary">Implementação do jogo Simon Says em ESP32 com servidor web embarcado, lógica não bloqueante e interface interativa.</p>
-              <ul class="project-highlights">
-                <li>Programação orientada a objetos em C++.</li>
-                <li>Controle não bloqueante com millis().</li>
-                <li>Servidor HTTP embarcado com endpoints de API.</li>
-              </ul>
-              <div class="tag-row">
-                <span class="tag hw">ESP32</span><span class="tag">C++</span><span class="tag">Arduino IDE</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
-              </div>
-              <div class="project-links">
-                <a class="small-link" href="https://github.com/SanderRosa/GeniusESP32" target="_blank" rel="noopener">Repositório no GitHub</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJETO 3 -->
-          <article class="project-card" data-category="software">
-            <div class="project-media">
-              <img src="assets/projetos/erp-compras.png" alt="Código fonte do módulo ERP" />
-            </div>
-            <div class="project-body">
-              <div class="project-top">
-                <h3 class="project-title">Módulo de Compras — Sistema ERP em C++</h3>
-                <span class="project-status">Acadêmico</span>
-              </div>
-              <p class="project-summary">Módulo de compras com foco em orientação a objetos, baixo acoplamento e organização de subsistemas.</p>
-              <ul class="project-highlights">
-                <li>Aplicação de padrões como Façade e Strategy.</li>
-                <li>Interfaces abstratas para estoque, financeiro e produção.</li>
-                <li>Templates, exceções e persistência em arquivo.</li>
-              </ul>
-              <div class="tag-row">
-                <span class="tag">C++</span><span class="tag">CMake</span><span class="tag">POO</span><span class="tag">Templates</span><span class="tag">Design Patterns</span>
-              </div>
-              <div class="project-links">
-                <a class="small-link" href="https://github.com/SanderRosa/Modulo-de-Compras-Sistema-ERP" target="_blank" rel="noopener">Repositório no GitHub</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJETO 4 -->
-          <article class="project-card" data-category="ia software">
-            <div class="project-media">
-              <img src="assets/projetos/contador-ovos.jpg" alt="Resultado do contador de ovos" />
-            </div>
-            <div class="project-body">
-              <div class="project-top">
-                <h3 class="project-title">Contador de Ovos de C. elegans — Visão Computacional</h3>
-                <span class="project-status">Aplicação científica</span>
-              </div>
-              <p class="project-summary">Ferramenta em Python para contagem automatizada de ovos em imagens microscópicas usando processamento de imagem.</p>
-              <ul class="project-highlights">
-                <li>Pipeline com CLAHE, binarização adaptativa e morfologia.</li>
-                <li>Componentes conectados, bounding boxes e centroides.</li>
-                <li>Aplicação prática de visão computacional.</li>
-              </ul>
-              <div class="tag-row">
-                <span class="tag">Python</span><span class="tag cv">OpenCV</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
-              </div>
-              <div class="project-links">
-                <a class="small-link" href="https://github.com/SanderRosa/Contador-de-OVOS-de-C-elegans-Python" target="_blank" rel="noopener">Repositório no GitHub</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJETO 5 -->
-          <article class="project-card" data-category="automacao software">
-            <div class="project-media">
-              <img src="assets/projetos/semaforo-inteligente.png" alt="Diagrama do semáforo adaptativo" />
-            </div>
-            <div class="project-body">
-              <div class="project-top">
-                <h3 class="project-title">Semáforo Inteligente em C</h3>
-                <span class="project-status">Controle lógico</span>
-              </div>
-              <p class="project-summary">Simulação de controle de tráfego adaptativo com tempo de verde proporcional ao volume de veículos.</p>
-              <ul class="project-highlights">
-                <li>Uso de enum, struct, malloc/free e I/O de arquivo.</li>
-                <li>Máquina de estados e controle de exclusividade.</li>
-              </ul>
-              <div class="tag-row">
-                <span class="tag">C</span><span class="tag">struct</span><span class="tag">enum</span><span class="tag">malloc/free</span>
-              </div>
-              <div class="project-links"><a class="small-link" href="https://github.com/SanderRosa/Semaforo-Inteligente-C" target="_blank" rel="noopener">Repositório no GitHub</a></div>
-            </div>
-          </article>
-
-          <!-- PROJETO 6 -->
-          <article class="project-card" data-category="ia automacao software">
-            <div class="project-media">
-              <img src="assets/projetos/sistema-grow.png" alt="Dashboard do sistema GROW" />
-            </div>
-            <div class="project-body">
-              <div class="project-top">
-                <h3 class="project-title">Sistema Especialista GROW</h3>
-                <span class="project-status">IA simbólica</span>
-              </div>
-              <p class="project-summary">Sistema baseado em regras SE-ENTÃO para controle de ambiente indoor com sensores, atuadores e persistência.</p>
-              <ul class="project-highlights">
-                <li>Regras de controle para exaustor, luz, umidificador e bomba.</li>
-                <li>Persistência com SQLite e arquitetura modular.</li>
-              </ul>
-              <div class="tag-row">
-                <span class="tag">Python</span><span class="tag">SQLite</span><span class="tag ai">Sistema Especialista</span>
-              </div>
-              <div class="project-links"><a class="small-link" href="https://github.com/SanderRosa/SISTEMA-ESPECIALISTA-GROW" target="_blank" rel="noopener">Repositório no GitHub</a></div>
-            </div>
-          </article>
-
-          <!-- PROJETO 7 -->
-          <article class="project-card" data-category="iot automacao">
-            <div class="project-media">
-              <img src="assets/projetos/arduino-eeprom.png" alt="Circuito de sensores Arduino" />
-            </div>
-            <div class="project-body">
-              <div class="project-top">
-                <h3 class="project-title">Sensores Arduino com EEPROM</h3>
-                <span class="project-status">Embarcados</span>
-              </div>
-              <p class="project-summary">Sistema de aquisição de dados ambientais com sensor de temperatura, higrômetro e persistência em EEPROM.</p>
-              <ul class="project-highlights">
-                <li>Processamento em lote com média, máximo e mínimo.</li>
-                <li>Diferença prática entre RAM e EEPROM.</li>
-              </ul>
-              <div class="tag-row">
-                <span class="tag hw">Arduino</span><span class="tag">C++</span><span class="tag">EEPROM</span><span class="tag">Tinkercad</span>
-              </div>
-              <div class="project-links"><a class="small-link" href="https://github.com/SanderRosa/projeto-arduino-temperatura" target="_blank" rel="noopener">Repositório no GitHub</a></div>
-            </div>
-          </article>
-
-          <!-- PROJETO 8 -->
-          <article class="project-card" data-category="automacao">
-            <div class="project-media">
-              <img src="assets/projetos/logisim-circuito.png" alt="Circuito lógico no Logisim" />
-            </div>
-            <div class="project-body">
-              <div class="project-top">
-                <h3 class="project-title">Circuito Lógico — Logisim</h3>
-                <span class="project-status">Eletrônica digital</span>
-              </div>
-              <p class="project-summary">Projeto e simulação de circuito lógico digital com álgebra booleana e verificação funcional.</p>
-              <ul class="project-highlights">
-                <li>Simplificação por Mapa de Karnaugh.</li>
-                <li>Portas lógicas e simulação no Logisim-Evolution.</li>
-              </ul>
-              <div class="tag-row">
-                <span class="tag hw">Logisim</span><span class="tag">Álgebra Booleana</span><span class="tag">Circuitos Digitais</span>
-              </div>
-              <div class="project-links"><a class="small-link" href="https://github.com/SanderRosa/Cirucuito-Logico-Logisim" target="_blank" rel="noopener">Repositório no GitHub</a></div>
-            </div>
-          </article>
-        </div>
+  <!-- Contato -->
+  <section class="section" id="contato">
+    <div class="container contact-wrapper">
+      <h2 class="section-title" style="margin-bottom: 20px;">Pronto para agregar na equipe</h2>
+      <p class="contact-text">Interessado em conversar sobre as minhas habilidades técnicas? Entre em contato direto.</p>
+      <div class="hero-actions">
+        <a href="mailto:rosasandercardoso@gmail.com" class="btn btn-primary">rosasandercardoso@gmail.com</a>
+        <a href="https://wa.me/5551989543839" target="_blank" class="btn btn-secondary">Conversar via WhatsApp</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="experiencia">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Trajetória</div>
-            <h2 class="section-title">Experiência profissional</h2>
-          </div>
-          <p class="section-description">Experiências formais e vivências aplicadas que complementam a formação técnica.</p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-head">
-              <h3>Arte Finalista — INVESTTE Indústria e Comércio Ltda</h3>
-              <span class="date">09/2021 — 01/2022</span>
-            </div>
-            <ul>
-              <li>Criação e finalização de materiais gráficos.</li>
-              <li>Uso de CorelDRAW no fechamento e ajuste de arquivos.</li>
-              <li>Atenção a detalhes, padronização visual e organização.</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-head">
-              <h3>Trabalho temporário — IMPRESUL (via Captar Recursos Humanos)</h3>
-              <span class="date">12/2019 — 03/2020</span>
-            </div>
-            <ul>
-              <li>Atuação em ambiente industrial.</li>
-              <li>Apoio a rotinas operacionais e organização de processos.</li>
-              <li>Vivência com disciplina, adaptação e rotina produtiva.</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-head">
-              <h3>Atividades extensionistas — UERGS</h3>
-              <span class="date">2024 — 2026</span>
-            </div>
-            <ul>
-              <li>Participação em atividades extensionistas e ações complementares à formação em engenharia.</li>
-              <li>Atuação voluntária em apoio ao estado de calamidade pública no RS.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="certificados">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Formação complementar</div>
-            <h2 class="section-title">Certificações e cursos</h2>
-          </div>
-          <p class="section-description">Cursos alinhados a automação, IoT, CLP e indústria.</p>
-        </div>
-
-        <div class="cert-grid">
-          <div class="cert-card">
-            <div class="icon">🏭</div>
-            <h3>Indústria 4.0: Internet das Coisas</h3>
-            <div class="meta">IFMG · 30h · 2025</div>
-            <p>IoT, IIoT, Cloud Computing, Big Data, SDN, M2M e segurança de dados.</p>
-          </div>
-
-          <div class="cert-card">
-            <div class="icon">⚙️</div>
-            <h3>CLP para Iniciantes</h3>
-            <div class="meta">Mitsubishi Electric · 2h · 2025</div>
-            <p>Treinamento online em CLP. Nota: 10,00.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="voluntariado">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Vivência social</div>
-            <h2 class="section-title">Voluntariado</h2>
-          </div>
-          <p class="section-description">Atuação complementar vinculada à UERGS e ao apoio comunitário.</p>
-        </div>
-
-        <div class="cert-grid">
-          <div class="cert-card">
-            <div class="icon">🤝</div>
-            <h3>Uergs de mãos dadas com o RS</h3>
-            <div class="meta">UERGS · 20h · 2024</div>
-            <p>Atuação voluntária em apoio ao estado de calamidade pública no Rio Grande do Sul.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contato">
-      <div class="container two-col">
-        <div class="section-card">
-          <div class="section-kicker">Contato</div>
-          <h2 class="section-title">Vamos conversar?</h2>
-          <p class="section-description">
-            Busco oportunidade de estágio em automação, IoT, sistemas embarcados ou software aplicado à engenharia.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:rosasandercardoso@gmail.com">Enviar e-mail</a>
-            <a class="btn btn-secondary" href="https://wa.me/5551989543839" target="_blank" rel="noopener">WhatsApp</a>
-          </div>
-        </div>
-
-        <div class="section-card">
-          <div class="section-kicker">Soft skills</div>
-          <h2 class="section-title">Perfil de trabalho</h2>
-          <ul class="bullet-grid">
-            <li>Pensamento lógico e analítico</li>
-            <li>Aprendizado autodidata</li>
-            <li>Proatividade</li>
-            <li>Organização</li>
-            <li>Resolução de problemas</li>
-            <li>Comunicação clara</li>
-            <li>Disciplina</li>
-            <li>Integração teoria e prática</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </main>
-
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p><strong>Sander Cardoso da Rosa</strong> · Engenharia de Controle e Automação · UERGS</p>
-      <p>Portfólio técnico voltado a estágio em automação, IoT, sistemas embarcados e software aplicado à engenharia.</p>
+      <p>&copy; 2026 Sander Cardoso da Rosa. Engenheiro de Controle e Automação em formação.</p>
     </div>
   </footer>
 
