@@ -338,6 +338,72 @@
       box-shadow: 0 10px 20px rgba(0, 242, 254, 0.1);
     }
 
+    /* Efeitos Especiais por Projeto */
+    @keyframes geniusGlow {
+      0% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.6); border-color: rgba(239, 68, 68, 0.8); }
+      25% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); border-color: rgba(59, 130, 246, 0.8); }
+      50% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.6); border-color: rgba(16, 185, 129, 0.8); }
+      75% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.6); border-color: rgba(245, 158, 11, 0.8); }
+      100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.6); border-color: rgba(239, 68, 68, 0.8); }
+    }
+
+    .project-node.genius:hover {
+      animation: geniusGlow 2s infinite linear;
+    }
+
+    @keyframes scanner {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(140px); }
+    }
+
+    .project-node.nexus {
+      position: relative;
+    }
+
+    .project-node.nexus::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--cyan);
+      opacity: 0;
+      z-index: 10;
+      box-shadow: 0 0 15px var(--cyan);
+      pointer-events: none;
+    }
+
+    .project-node.nexus:hover::before {
+      opacity: 1;
+      animation: scanner 2s infinite linear;
+    }
+
+    .project-node.cv {
+      position: relative;
+    }
+
+    .project-node.cv::after {
+      content: '[+] TARGET';
+      position: absolute;
+      top: 70px; left: 50%;
+      transform: translate(-50%, -50%) scale(0.5);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green);
+      background: rgba(0, 0, 0, 0.6);
+      padding: 4px 10px;
+      border: 1px solid var(--green);
+      border-radius: 4px;
+      opacity: 0;
+      transition: var(--transition);
+      pointer-events: none;
+      z-index: 15;
+    }
+
+    .project-node.cv:hover::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
     .project-node-img {
       height: 140px;
       width: 100%;
@@ -576,7 +642,7 @@
         <div class="projects-dashboard">
           
           <!-- Nexus Control -->
-          <article class="project-node">
+          <article class="project-node nexus">
             <img src="assets/projetos/nexus-control.png" alt="Nexus Control" class="project-node-img">
             <div class="project-node-body">
               <h4 class="project-node-title">NEXUS CONTROL</h4>
@@ -586,7 +652,7 @@
           </article>
 
           <!-- Genius IoT ESP32 -->
-          <article class="project-node">
+          <article class="project-node genius">
             <img src="assets/projetos/genius-ui.png" alt="Genius IoT" class="project-node-img">
             <div class="project-node-body">
               <h4 class="project-node-title">Genius IoT ESP32</h4>
@@ -596,7 +662,7 @@
           </article>
 
           <!-- Visão Computacional -->
-          <article class="project-node">
+          <article class="project-node cv">
             <img src="assets/projetos/contador-ovos.jpg" alt="Visão Computacional" class="project-node-img">
             <div class="project-node-body">
               <h4 class="project-node-title">Visão Computacional</h4>
