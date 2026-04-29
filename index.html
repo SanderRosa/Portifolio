@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sander Cardoso da Rosa | Portfólio Técnico</title>
+  <meta name="description" content="Portfólio técnico de Sander Cardoso da Rosa — Engenharia de Controle e Automação, IoT, sistemas embarcados, automação industrial, IA aplicada e visão computacional." />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    :root {
+      --bg: #030712;
+      --bg-soft: #0b1329;
+      --card: rgba(11, 19, 41, 0.65);
+      --card-strong: rgba(15, 23, 42, 0.85);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --soft: #cbd5e1;
+      --line: rgba(0, 242, 254, 0.15);
+      --neon-cyan: #00f2fe;
+      --neon-green: #00ff87;
+      --neon-blue: #4facfe;
+      --purple: #a78bfa;
+      --yellow: #fbbf24;
+      --red: #fb7185;
+      --shadow: 0 0 30px rgba(0, 242, 254, 0.15);
+      --radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0, 242, 254, 0.15), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(167, 139, 250, 0.1), transparent 40%),
+        linear-gradient(rgba(0, 242, 254, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 254, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    /* Tipografia Técnica */
+    .tech-data {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(3, 7, 18, 0.75);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+      color: #030712;
+      font-size: 1.2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--neon-cyan);
+      text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+    }
+
+    .nav-cta {
+      border: 1px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+      padding: 8px 16px;
+      border-radius: 4px;
+      background: rgba(0, 242, 254, 0.05);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      background: rgba(0, 242, 254, 0.2);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+    }
+
+    .hero {
+      padding: 72px 0 44px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    /* Glassmorphism Cards */
+    .hero-main,
+    .hero-side,
+    .section-card,
+    .project-card,
+    .mini-card,
+    .cert-card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-main {
+      padding: 38px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--neon-cyan), var(--neon-blue));
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(0, 255, 135, 0.3);
+      background: rgba(0, 255, 135, 0.05);
+      color: var(--neon-green);
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      margin-bottom: 22px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--neon-green);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--neon-green);
+      animation: pulse-glow 2s infinite;
+    }
+
+    @keyframes pulse-glow {
+      0% { box-shadow: 0 0 0 0 rgba(0, 255, 135, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(0, 255, 135, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 255, 135, 0); }
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      margin-bottom: 16px;
+      font-weight: 900;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff, var(--neon-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.04rem, 2vw, 1.25rem);
+      color: var(--soft);
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border-radius: 4px;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      border: 1px solid var(--line);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+    }
+
+    .btn-primary {
+      background: rgba(0, 242, 254, 0.1);
+      color: var(--neon-cyan);
+      border-color: var(--neon-cyan);
+    }
+
+    .btn-primary:hover {
+      background: rgba(0, 242, 254, 0.2);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .hero-side {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .profile-box {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+    }
+
+    .profile-box h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--neon-cyan);
+    }
+
+    .profile-box p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .quick-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .quick-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--soft);
+      font-size: 0.93rem;
+    }
+
+    .quick-item span:first-child {
+      color: var(--neon-cyan);
+      font-size: 1.05rem;
+      width: 20px;
+    }
+
+    .section {
+      padding: 42px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .section-kicker {
+      color: var(--neon-cyan);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 560px;
+      font-size: 0.98rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(3, 7, 18, 0.4);
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--neon-cyan);
+      margin-bottom: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .skill-chip {
+      border: 1px solid var(--line);
+      background: rgba(3, 7, 18, 0.4);
+      border-radius: 8px;
+      padding: 14px;
+      min-height: 92px;
+      transition: all 0.3s ease;
+    }
+
+    .skill-chip:hover {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .skill-chip b {
+      display: block;
+      margin-bottom: 6px;
+      color: #f8fafc;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+    }
+
+    .skill-chip span {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--soft);
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: rgba(0, 242, 254, 0.1);
+      border-color: var(--neon-cyan);
+      color: var(--neon-cyan);
+      box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .project-media {
+      height: 230px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(0, 255, 135, 0.05));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .media-placeholder {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .media-placeholder .big-icon {
+      font-size: 3.2rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .media-placeholder b {
+      color: var(--text);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .project-body {
+      padding: 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+      align-items: flex-start;
+    }
+
+    .project-title {
+      font-size: 1.18rem;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      color: var(--neon-cyan);
+    }
+
+    .project-status {
+      flex: 0 0 auto;
+      font-size: 0.72rem;
+      font-weight: 800;
+      border: 1px solid rgba(0, 255, 135, 0.3);
+      border-radius: 4px;
+      padding: 4px 8px;
+      color: var(--neon-green);
+      background: rgba(0, 255, 135, 0.05);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .project-summary {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+
+    .project-highlights {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .project-highlights li {
+      color: var(--soft);
+      font-size: 0.87rem;
+      display: flex;
+      gap: 8px;
+    }
+
+    .project-highlights li::before {
+      content: '>';
+      color: var(--neon-cyan);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: auto;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--neon-cyan);
+      background: rgba(0, 242, 254, 0.05);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 4px 8px;
+    }
+
+    .tag.ai { color: var(--purple); background: rgba(167, 139, 250, 0.05); }
+    .tag.hw { color: var(--neon-green); background: rgba(0, 255, 135, 0.05); }
+    .tag.cv { color: var(--yellow); background: rgba(251, 191, 36, 0.05); }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .small-link {
+      color: var(--neon-cyan);
+      border: 1px solid rgba(0, 242, 254, 0.2);
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(0, 242, 254, 0.02);
+      transition: all 0.3s ease;
+    }
+
+    .small-link:hover {
+      background: rgba(0, 242, 254, 0.1);
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 18px 18px 18px 24px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 8px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--neon-cyan), var(--neon-blue));
+    }
+
+    .timeline-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-head h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--neon-cyan);
+    }
+
+    .date {
+      color: var(--neon-cyan);
+      font-weight: 700;
+      font-size: 0.88rem;
+      font-family: 'JetBrains Mono', monospace;
+      white-space: nowrap;
+    }
+
+    .timeline-item ul {
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .timeline-item ul li {
+      margin-bottom: 6px;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .cert-card {
+      padding: 18px;
+      min-height: 170px;
+    }
+
+    .cert-card .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: rgba(0, 242, 254, 0.1);
+      color: var(--neon-cyan);
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+      box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+    }
+
+    .cert-card h3 {
+      font-size: 1.03rem;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .cert-card .meta {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--neon-cyan);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .cert-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .section-card {
+      padding: 24px;
+    }
+
+    .section-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+      color: var(--neon-cyan);
+      font-weight: 700;
+    }
+
+    .bullet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 24px;
+      padding-left: 18px;
+      color: var(--soft);
+      font-size: 0.92rem;
+    }
+
+    .bullet-grid li {
+      margin-bottom: 4px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      margin-top: 42px;
+      padding: 30px 0 44px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer strong {
+      color: var(--neon-cyan);
+    }
+
+    .hide {
+      display: none !important;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .two-col,
+      .projects-grid,
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(100% - 22px, 1160px);
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero-main,
+      .hero-side,
+      .section-card,
+      .project-body {
+        padding: 20px;
+      }
+
+      .stats-grid,
+      .skills-grid,
+      .bullet-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-media {
+        height: 190px;
+      }
+
+      .timeline-head {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Voltar ao topo">
+        <span class="brand-mark">⚙️</span>
+        <span>Sander Cardoso</span>
+      </a>
+
+      <div class="nav-links" aria-label="Navegação principal">
+        <a href="#projetos">Projetos</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#certificados">Certificados</a>
+        <a href="#contato" class="nav-cta">Contato</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-main">
+          <div class="status-pill"><span class="pulse"></span> Em busca de estágio técnico</div>
+          <h1><span class="gradient-text">Sander Cardoso da Rosa</span></h1>
+          <p class="hero-subtitle">
+            Estudante de Engenharia de Controle e Automação com portfólio prático em automação, IoT,
+            sistemas embarcados, IA aplicada e visão computacional.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="assets/curriculos/Sander_Cardoso_Curriculo_ATS.pdf" target="_blank" rel="noopener">📄 Baixar currículo ATS</a>
+            <a class="btn btn-secondary" href="https://github.com/SanderRosa" target="_blank" rel="noopener">💻 GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/sander-cardoso-rosa-591632338/" target="_blank" rel="noopener">🔗 LinkedIn</a>
+          </div>
+
+          <div class="stats-grid" aria-label="Resumo do portfólio">
+            <div class="stat"><strong>8</strong><span>Projetos técnicos</span></div>
+            <div class="stat"><strong>3</strong><span>Projetos IoT/HW</span></div>
+            <div class="stat"><strong>3</strong><span>Projetos com IA/dados</span></div>
+            <div class="stat"><strong>2026</strong><span>Eng. Controle e Automação</span></div>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="profile-box">
+            <h2>Foco profissional</h2>
+            <p>Automação industrial, sistemas embarcados, integração hardware/software, IoT e software aplicado à engenharia.</p>
+          </div>
+
+          <div class="quick-list">
+            <div class="quick-item"><span>📍</span><span>Porto Alegre — RS</span></div>
+            <div class="quick-item"><span>📧</span><a href="mailto:rosasandercardoso@gmail.com">rosasandercardoso@gmail.com</a></div>
+            <div class="quick-item"><span>📱</span><a href="tel:+5551989543839">(51) 98954-3839</a></div>
+            <div class="quick-item"><span>🎓</span><span>UERGS — Engenharia de Controle e Automação</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container two-col">
+        <div class="section-card">
+          <div class="section-kicker">Resumo</div>
+          <h2 class="section-title">Perfil técnico</h2>
+          <p class="section-description">
+            Perfil autodidata, proativo e orientado à aplicação prática. Busco estágio em Engenharia de Controle,
+            Automação, IoT ou Sistemas Embarcados, com foco em projetos que integrem software, eletrônica,
+            sensores, atuadores, controle e sistemas industriais.
+          </p>
+        </div>
+
+        <div class="section-card">
+          <div class="section-kicker">Base</div>
+          <h2 class="section-title">Competências</h2>
+          <ul class="bullet-grid">
+            <li>Python, C, C++</li>
+            <li>TypeScript / JavaScript</li>
+            <li>ESP32 e Arduino</li>
+            <li>Flask / Flask-SocketIO</li>
+            <li>React e APIs REST</li>
+            <li>Ollama / LLMs locais</li>
+            <li>OpenCV / NumPy</li>
+            <li>SQLite / Docker</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tecnologias">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Stack</div>
+            <h2 class="section-title">Tecnologias e áreas</h2>
+          </div>
+          <p class="section-description">Organização das principais competências por área de aplicação.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-chip">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--neon-green); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+              <span class="pulse" style="width: 6px; height: 6px;"></span> SYSTEM ONLINE
+            </div>
+            <b>Programação</b>
+            <span>Python, C, C++, POO, lógica e estruturação de sistemas.</span>
+          </div>
+          <div class="skill-chip">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--neon-cyan); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+              <span class="pulse" style="width: 6px; height: 6px; background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan);"></span> HW CONNECTED
+            </div>
+            <b>Embarcados</b>
+            <span>ESP32, Arduino, sensores, atuadores, EEPROM e máquinas de estado.</span>
+          </div>
+          <div class="skill-chip">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--neon-cyan); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+              <span class="pulse" style="width: 6px; height: 6px; background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan);"></span> LINK ACTIVE
+            </div>
+            <b>Web técnico</b>
+            <span>Flask, React, APIs REST, WebSockets e interfaces de controle.</span>
+          </div>
+          <div class="skill-chip">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--purple); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+              <span class="pulse" style="width: 6px; height: 6px; background: var(--purple); box-shadow: 0 0 10px var(--purple);"></span> DATA PROCESSING
+            </div>
+            <b>IA e dados</b>
+            <span>Ollama, LLMs locais, visão computacional, OpenCV, NumPy e SQLite.</span>
+          </div>
+          <div class="skill-chip">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--neon-green); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+              <span class="pulse" style="width: 6px; height: 6px;"></span> LOGIC READY
+            </div>
+            <b>Automação</b>
+            <span>CLP iniciante, SCADA conceitual, eletrônica digital e Logisim.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projetos">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Portfólio</div>
+            <h2 class="section-title">Projetos técnicos</h2>
+          </div>
+          <p class="section-description">Acesse o código-fonte completo de cada projeto nos meus repositórios do GitHub.</p>
+        </div>
+
+        <div class="filter-bar" role="toolbar" aria-label="Filtro de projetos">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="ia">IA / Dados</button>
+          <button class="filter-btn" data-filter="iot">IoT / Embarcados</button>
+          <button class="filter-btn" data-filter="software">Software</button>
+          <button class="filter-btn" data-filter="automacao">Automação</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- PROJETO 1 -->
+          <article class="project-card" data-category="ia software automacao">
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">NEXUS CONTROL — Plataforma de Automação com IA</h3>
+                <span class="project-status">Em desenvolvimento</span>
+              </div>
+              <p class="project-summary">Plataforma full-stack voltada à Engenharia de Controle e Automação, integrando IA local, backend em Flask e interface em React/TypeScript.</p>
+              <ul class="project-highlights">
+                <li>Arquitetura multiagente com agentes especializados.</li>
+                <li>Comunicação em tempo real com Flask-SocketIO.</li>
+                <li>Visualizações industriais: dashboard, CLP, IHM, SCADA e Arduino/Wokwi.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag ai">Ollama</span><span class="tag">Docker</span>
+              </div>
+              <div class="project-links">
+                <a class="small-link" href="https://github.com/SanderRosa/Nexus-Control" target="_blank" rel="noopener">Repositório no GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJETO 2 -->
+          <article class="project-card" data-category="iot automacao software">
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Genius IoT ESP32 — Sistema Embarcado com Interface Web</h3>
+                <span class="project-status">Projeto prático</span>
+              </div>
+              <p class="project-summary">Implementação do jogo Simon Says em ESP32 com servidor web embarcado, lógica não bloqueante e interface interativa.</p>
+              <ul class="project-highlights">
+                <li>Programação orientada a objetos em C++.</li>
+                <li>Controle não bloqueante com millis().</li>
+                <li>Servidor HTTP embarcado com endpoints de API.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag hw">ESP32</span><span class="tag">C++</span><span class="tag">Arduino IDE</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a class="small-link" href="https://github.com/SanderRosa/GeniusESP32" target="_blank" rel="noopener">Repositório no GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJETO 3 -->
+          <article class="project-card" data-category="software">
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Módulo de Compras — Sistema ERP em C++</h3>
+                <span class="project-status">Acadêmico</span>
+              </div>
+              <p class="project-summary">Módulo de compras com foco em orientação a objetos, baixo acoplamento e organização de subsistemas.</p>
+              <ul class="project-highlights">
+                <li>Aplicação de padrões como Façade e Strategy.</li>
+                <li>Interfaces abstratas para estoque, financeiro e produção.</li>
+                <li>Templates, exceções e persistência em arquivo.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">C++</span><span class="tag">CMake</span><span class="tag">POO</span><span class="tag">Templates</span><span class="tag">Design Patterns</span>
+              </div>
+              <div class="project-links">
+                <a class="small-link" href="https://github.com/SanderRosa/Modulo-de-Compras-Sistema-ERP" target="_blank" rel="noopener">Repositório no GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJETO 4 -->
+          <article class="project-card" data-category="ia software">
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Contador de Ovos de C. elegans — Visão Computacional</h3>
+                <span class="project-status">Aplicação científica</span>
+              </div>
+              <p class="project-summary">Ferramenta em Python para contagem automatizada de ovos em imagens microscópicas usando processamento de imagem.</p>
+              <ul class="project-highlights">
+                <li>Pipeline com CLAHE, binarização adaptativa e morfologia.</li>
+                <li>Componentes conectados, bounding boxes e centroides.</li>
+                <li>Aplicação prática de visão computacional.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Python</span><span class="tag cv">OpenCV</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
+              </div>
+              <div class="project-links">
+                <a class="small-link" href="https://github.com/SanderRosa/Contador-de-OVOS-de-C-elegans-Python" target="_blank" rel="noopener">Repositório no GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJETO 5 -->
+          <article class="project-card" data-category="automacao software">
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Semáforo Inteligente em C</h3>
+                <span class="project-status">Controle lógico</span>
+              </div>
+              <p class="project-summary">Simulação de controle de tráfego adaptativo com tempo de verde proporcional ao volume de veículos.</p>
+              <ul class="project-highlights">
+                <li>Uso de enum, struct, malloc/free e I/O de arquivo.</li>
+                <li>Máquina de estados e controle de exclusividade.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">C</span><span class="tag">struct</span><span class="tag">enum</span><span class="tag">malloc/free</span>
+              </div>
+              <div class="project-links"><a class="small-link" href="https://github.com/SanderRosa/Semaforo-Inteligente-C" target="_blank" rel="noopener">Repositório no GitHub</a></div>
+            </div>
+          </article>
+
+          <!-- PROJETO 6 -->
+          <article class="project-card" data-category="ia automacao software">
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Sistema Especialista GROW</h3>
+                <span class="project-status">IA simbólica</span>
+              </div>
+              <p class="project-summary">Sistema baseado em regras SE-ENTÃO para controle de ambiente indoor com sensores, atuadores e persistência.</p>
+              <ul class="project-highlights">
+                <li>Regras de controle para exaustor, luz, umidificador e bomba.</li>
+                <li>Persistência com SQLite e arquitetura modular.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Python</span><span class="tag">SQLite</span><span class="tag ai">Sistema Especialista</span>
+              </div>
+              <div class="project-links"><a class="small-link" href="https://github.com/SanderRosa/SISTEMA-ESPECIALISTA-GROW" target="_blank" rel="noopener">Repositório no GitHub</a></div>
+            </div>
+          </article>
+
+          <!-- PROJETO 7 -->
+          <article class="project-card" data-category="iot automacao">
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Sensores Arduino com EEPROM</h3>
+                <span class="project-status">Embarcados</span>
+              </div>
+              <p class="project-summary">Sistema de aquisição de dados ambientais com sensor de temperatura, higrômetro e persistência em EEPROM.</p>
+              <ul class="project-highlights">
+                <li>Processamento em lote com média, máximo e mínimo.</li>
+                <li>Diferença prática entre RAM e EEPROM.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag hw">Arduino</span><span class="tag">C++</span><span class="tag">EEPROM</span><span class="tag">Tinkercad</span>
+              </div>
+              <div class="project-links"><a class="small-link" href="https://github.com/SanderRosa/projeto-arduino-temperatura" target="_blank" rel="noopener">Repositório no GitHub</a></div>
+            </div>
+          </article>
+
+          <!-- PROJETO 8 -->
+          <article class="project-card" data-category="automacao">
+            <div class="project-media">
+              <img src="assets/projetos/logisim-circuito.png" alt="Circuito lógico no Logisim" />
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <h3 class="project-title">Circuito Lógico — Logisim</h3>
+                <span class="project-status">Eletrônica digital</span>
+              </div>
+              <p class="project-summary">Projeto e simulação de circuito lógico digital com álgebra booleana e verificação funcional.</p>
+              <ul class="project-highlights">
+                <li>Simplificação por Mapa de Karnaugh.</li>
+                <li>Portas lógicas e simulação no Logisim-Evolution.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag hw">Logisim</span><span class="tag">Álgebra Booleana</span><span class="tag">Circuitos Digitais</span>
+              </div>
+              <div class="project-links"><a class="small-link" href="https://github.com/SanderRosa/Cirucuito-Logico-Logisim" target="_blank" rel="noopener">Repositório no GitHub</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experiencia">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Trajetória</div>
+            <h2 class="section-title">Experiência profissional</h2>
+          </div>
+          <p class="section-description">Experiências formais e vivências aplicadas que complementam a formação técnica.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-head">
+              <h3>Arte Finalista — INVESTTE Indústria e Comércio Ltda</h3>
+              <span class="date">09/2021 — 01/2022</span>
+            </div>
+            <ul>
+              <li>Criação e finalização de materiais gráficos.</li>
+              <li>Uso de CorelDRAW no fechamento e ajuste de arquivos.</li>
+              <li>Atenção a detalhes, padronização visual e organização.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-head">
+              <h3>Trabalho temporário — IMPRESUL (via Captar Recursos Humanos)</h3>
+              <span class="date">12/2019 — 03/2020</span>
+            </div>
+            <ul>
+              <li>Atuação em ambiente industrial.</li>
+              <li>Apoio a rotinas operacionais e organização de processos.</li>
+              <li>Vivência com disciplina, adaptação e rotina produtiva.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-head">
+              <h3>Atividades extensionistas — UERGS</h3>
+              <span class="date">2024 — 2026</span>
+            </div>
+            <ul>
+              <li>Participação em atividades extensionistas e ações complementares à formação em engenharia.</li>
+              <li>Atuação voluntária em apoio ao estado de calamidade pública no RS.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="certificados">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Formação complementar</div>
+            <h2 class="section-title">Certificações e cursos</h2>
+          </div>
+          <p class="section-description">Cursos alinhados a automação, IoT, CLP e indústria.</p>
+        </div>
+
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="icon">🏭</div>
+            <h3>Indústria 4.0: Internet das Coisas</h3>
+            <div class="meta">IFMG · 30h · 2025</div>
+            <p>IoT, IIoT, Cloud Computing, Big Data, SDN, M2M e segurança de dados.</p>
+          </div>
+
+          <div class="cert-card">
+            <div class="icon">⚙️</div>
+            <h3>CLP para Iniciantes</h3>
+            <div class="meta">Mitsubishi Electric · 2h · 2025</div>
+            <p>Treinamento online em CLP. Nota: 10,00.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="voluntariado">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Vivência social</div>
+            <h2 class="section-title">Voluntariado</h2>
+          </div>
+          <p class="section-description">Atuação complementar vinculada à UERGS e ao apoio comunitário.</p>
+        </div>
+
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="icon">🤝</div>
+            <h3>Uergs de mãos dadas com o RS</h3>
+            <div class="meta">UERGS · 20h · 2024</div>
+            <p>Atuação voluntária em apoio ao estado de calamidade pública no Rio Grande do Sul.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="container two-col">
+        <div class="section-card">
+          <div class="section-kicker">Contato</div>
+          <h2 class="section-title">Vamos conversar?</h2>
+          <p class="section-description">
+            Busco oportunidade de estágio em automação, IoT, sistemas embarcados ou software aplicado à engenharia.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:rosasandercardoso@gmail.com">Enviar e-mail</a>
+            <a class="btn btn-secondary" href="https://wa.me/5551989543839" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <div class="section-kicker">Soft skills</div>
+          <h2 class="section-title">Perfil de trabalho</h2>
+          <ul class="bullet-grid">
+            <li>Pensamento lógico e analítico</li>
+            <li>Aprendizado autodidata</li>
+            <li>Proatividade</li>
+            <li>Organização</li>
+            <li>Resolução de problemas</li>
+            <li>Comunicação clara</li>
+            <li>Disciplina</li>
+            <li>Integração teoria e prática</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Sander Cardoso da Rosa</strong> · Engenharia de Controle e Automação · UERGS</p>
+      <p>Portfólio técnico voltado a estágio em automação, IoT, sistemas embarcados e software aplicado à engenharia.</p>
+    </div>
+  </footer>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        projectCards.forEach((card) => {
+          const categories = card.dataset.category || '';
+          const shouldShow = filter === 'all' || categories.includes(filter);
+          card.classList.toggle('hide', !shouldShow);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

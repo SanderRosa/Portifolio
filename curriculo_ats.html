@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Sander Cardoso da Rosa - Currículo Premium</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+        --primary: #0F172A;
+        --accent: #1E40AF;
+        --accent-light: #EFF6FF;
+        --text: #334155;
+        --text-dark: #0F172A;
+        --border: #E2E8F0;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: #ffffff;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 50px;
+    }
+
+    /* Header Styling */
+    header {
+        border-bottom: 3px solid var(--accent);
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+
+    h1 {
+        font-size: 28pt;
+        font-weight: 800;
+        color: var(--primary);
+        letter-spacing: -1px;
+        line-height: 1.1;
+        margin-bottom: 8px;
+    }
+
+    .subtitle {
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--accent);
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+        font-size: 9.5pt;
+        color: var(--text-dark);
+        font-weight: 500;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .contact-item a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* Section Styling */
+    section {
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 14pt;
+        font-weight: 700;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    h2::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background-color: var(--border);
+    }
+
+    /* Blocks & Lists */
+    .summary-text {
+        font-size: 10.5pt;
+        text-align: justify;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 6px;
+    }
+
+    .card-title {
+        font-size: 12pt;
+        font-weight: 700;
+        color: var(--text-dark);
+    }
+
+    .card-date {
+        font-size: 10pt;
+        font-weight: 600;
+        color: var(--accent);
+    }
+
+    .card-sub {
+        font-size: 10.5pt;
+        font-weight: 500;
+        color: var(--text);
+        margin-bottom: 8px;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        font-size: 10pt;
+        position: relative;
+        padding-left: 15px;
+        margin-bottom: 6px;
+    }
+
+    li::before {
+        content: "•";
+        color: var(--accent);
+        font-weight: bold;
+        font-size: 14pt;
+        position: absolute;
+        left: 0;
+        top: -4px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .skill-box {
+        background-color: var(--accent-light);
+        border-left: 4px solid var(--accent);
+        padding: 12px 15px;
+        border-radius: 0 6px 6px 0;
+    }
+
+    .skill-title {
+        font-size: 10.5pt;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 5px;
+    }
+
+    .skill-desc {
+        font-size: 9.5pt;
+        color: var(--text);
+    }
+
+    /* Page break for printing */
+    .page-break {
+        page-break-before: always;
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <h1>Sander Cardoso da Rosa</h1>
+        <div class="subtitle">Engenharia de Controle e Automação | Estágio em Automação & IoT</div>
+        <div class="contact-grid">
+            <div class="contact-item">📍 Porto Alegre - RS</div>
+            <div class="contact-item">📱 (51) 98954-3839</div>
+            <div class="contact-item">✉️ <a href="mailto:rosasandercardoso@gmail.com">rosasandercardoso@gmail.com</a></div>
+            <div class="contact-item">🔗 <a href="https://linkedin.com/in/sander-cardoso-rosa-591632338">linkedin.com/in/sander-cardoso-rosa</a></div>
+            <div class="contact-item">💻 <a href="https://github.com/SanderRosa">github.com/SanderRosa</a></div>
+        </div>
+    </header>
+
+    <section id="perfil">
+        <h2>Perfil Profissional</h2>
+        <p class="summary-text">Estudante de Engenharia de Controle e Automação com sólido perfil autodidata e orientado a soluções reais. Experiência prática unindo desenvolvimento web, firmware e projeto de hardware. Focado na otimização de sistemas, uso de IA local em engenharia, e arquiteturas IoT robustas. Em busca de oportunidade para aplicar conhecimentos técnicos em prol do crescimento industrial.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Competências Técnicas</h2>
+        <div class="skills-grid">
+            <div class="skill-box">
+                <div class="skill-title">Programação e Sistemas</div>
+                <div class="skill-desc">Python (scripts, automação), C/C++, TypeScript, JavaScript, POO.</div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">Embarcados e Hardware</div>
+                <div class="skill-desc">ESP32, Arduino, integração de sensores/atuadores, lógica sequencial, eletrônica digital.</div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">Frameworks e Web Técnico</div>
+                <div class="skill-desc">Flask, React, APIs REST, Docker, SQLite, WebSockets.</div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-title">Áreas de Domínio</div>
+                <div class="skill-desc">Visão Computacional (OpenCV), IA local (Ollama), CLP básico, automação indoor.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos">
+        <h2>Projetos de Destaque</h2>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Nexus Control — Plataforma Multiagente de IA</div>
+                <div class="card-date">Ativo</div>
+            </div>
+            <div class="card-sub">Python, Flask, React, TypeScript, Docker, Ollama</div>
+            <ul>
+                <li>Criação de ecossistema completo para monitoramento e simulação industrial utilizando IA local.</li>
+                <li>Implementação de WebSockets em tempo real integrados com lógicas modulares.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Genius IoT ESP32 — Sistema de Controle</div>
+                <div class="card-date">Hardware & Web</div>
+            </div>
+            <div class="card-sub">C++, ESP32, HTML, CSS, JavaScript</div>
+            <ul>
+                <li>Arquitetura limpa em C++ orientada a objetos para gerenciamento de estados não-bloqueantes.</li>
+                <li>Integração direta de hardware físico com dashboards de controle externos.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Visão Computacional — Contador Científico</div>
+                <div class="card-date">Python</div>
+            </div>
+            <div class="card-sub">Python, OpenCV, NumPy, Matplotlib</div>
+            <ul>
+                <li>Automação de processos laboratoriais obtendo alta precisão via filtros morfológicos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="educacao">
+        <h2>Formação Acadêmica</h2>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Bacharelado em Engenharia de Controle e Automação</div>
+                <div class="card-date">2021 — 2026</div>
+            </div>
+            <div class="card-sub">UERGS — Universidade Estadual do Rio Grande do Sul</div>
+            <ul>
+                <li><strong>Destaques Acadêmicos (Notas A/B):</strong> Programação Orientada a Objetos, Estrutura de Dados, Eletrônica Digital, Métodos Numéricos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="experiencia">
+        <h2>Experiência Profissional</h2>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Arte Finalista</div>
+                <div class="card-date">09/2021 — 01/2022</div>
+            </div>
+            <div class="card-sub">INVESTTE Indústria e Comércio Ltda</div>
+            <ul>
+                <li>Responsável pela conformidade visual e fechamento de arquivos críticos em cadeia de produção.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Rotinas Operacionais Industriais</div>
+                <div class="card-date">12/2019 — 03/2020</div>
+            </div>
+            <div class="card-sub">IMPRESUL</div>
+            <ul>
+                <li>Compreensão profunda das demandas cotidianas no chão de fábrica e segurança operacional.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="adicional">
+        <h2>Informações Complementares</h2>
+        <ul>
+            <li><strong>Certificações:</strong> CLP Iniciante (Mitsubishi) | Indústria 4.0 & IoT (IFMG).</li>
+            <li><strong>Idiomas:</strong> Inglês Básico.</li>
+            <li><strong>Vivência Social:</strong> Voluntário no projeto "Mãos Dadas com o RS" (2024).</li>
+        </ul>
+    </section>
+
+</body>
+</html>
