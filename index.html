@@ -51,9 +51,6 @@
 
     /* Top Navigation */
     .navbar {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
       padding: 20px 0;
       position: sticky;
       top: 0;
@@ -492,10 +489,9 @@
 </head>
 <body>
 
-  <div class="container">
-    
-    <!-- Navbar -->
-    <nav class="navbar" style="justify-content: flex-end;">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container" style="display: flex; justify-content: flex-end; align-items: center;">
       <div class="nav-links">
         <a href="#">Home</a>
         <a href="#sobre">Sobre</a>
@@ -503,7 +499,10 @@
         <a href="#stack">Stack</a>
         <a href="#contato" class="nav-cta">Contato</a>
       </div>
-    </nav>
+    </div>
+  </nav>
+
+  <div class="container">
 
     <!-- Hero Section -->
     <header class="hero">
