@@ -493,15 +493,17 @@
       animation: brainPulse 2s infinite ease-in-out;
     }
 
-    /* Efeito Caixa: Blueprint glow */
-    @keyframes blueprintGlow {
-      0% { box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); border-color: rgba(0, 242, 254, 0.5); }
-      50% { box-shadow: 0 0 25px rgba(0, 242, 254, 0.6); border-color: rgba(0, 242, 254, 1); }
-      100% { box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); border-color: rgba(0, 242, 254, 0.5); }
+    /* Efeito Elétrico (Shock/Lightning) */
+    @keyframes electric {
+      0%, 100% { box-shadow: 0 0 5px #00f2fe, 0 0 10px #00f2fe; }
+      50% { box-shadow: 0 0 20px #00f2fe, 0 0 40px #3b82f6; filter: brightness(1.2); }
+      20%, 80% { transform: translate(1px, 1px); }
+      40%, 60% { transform: translate(-1px, -1px); }
     }
 
     .project-node.caixa:hover {
-      animation: blueprintGlow 2s infinite ease-in-out;
+      animation: electric 0.15s infinite;
+      border-color: #00f2fe;
     }
 
     .project-node-img {
@@ -803,11 +805,11 @@
 
           <!-- Caixa ESP32 -->
           <article class="project-node caixa">
-            <img src="assets/projetos/caixa-esp32.png" alt="Caixa ESP32" class="project-node-img">
+            <img src="assets/projetos/caixa-esp32-render.png" alt="Caixa ESP32" class="project-node-img">
             <div class="project-node-body">
               <h4 class="project-node-title">Projeto de Case ESP32</h4>
               <span class="project-node-tag">Design CAD / 3D</span>
-              <a href="../CAIXA ESP32/Desenho_Tecnico_Cotas.html" target="_blank" style="margin-top: auto; color: var(--cyan); font-size: 0.85rem; text-decoration: none; font-weight: 600;">Ver Desenho Técnico →</a>
+              <a href="assets/projetos/caixa-esp32-render.png" target="_blank" style="margin-top: auto; color: var(--cyan); font-size: 0.85rem; text-decoration: none; font-weight: 600;">Ver Renderização →</a>
             </div>
           </article>
 
