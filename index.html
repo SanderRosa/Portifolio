@@ -493,6 +493,17 @@
       animation: brainPulse 2s infinite ease-in-out;
     }
 
+    /* Efeito Caixa: Blueprint glow */
+    @keyframes blueprintGlow {
+      0% { box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); border-color: rgba(0, 242, 254, 0.5); }
+      50% { box-shadow: 0 0 25px rgba(0, 242, 254, 0.6); border-color: rgba(0, 242, 254, 1); }
+      100% { box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); border-color: rgba(0, 242, 254, 0.5); }
+    }
+
+    .project-node.caixa:hover {
+      animation: blueprintGlow 2s infinite ease-in-out;
+    }
+
     .project-node-img {
       height: 140px;
       width: 100%;
@@ -790,6 +801,16 @@
             </div>
           </article>
 
+          <!-- Caixa ESP32 -->
+          <article class="project-node caixa">
+            <img src="assets/projetos/caixa-esp32.png" alt="Caixa ESP32" class="project-node-img">
+            <div class="project-node-body">
+              <h4 class="project-node-title">Projeto de Case ESP32</h4>
+              <span class="project-node-tag">Design CAD / 3D</span>
+              <a href="../CAIXA ESP32/Desenho_Tecnico_Cotas.html" target="_blank" style="margin-top: auto; color: var(--cyan); font-size: 0.85rem; text-decoration: none; font-weight: 600;">Ver Desenho Técnico →</a>
+            </div>
+          </article>
+
         </div>
       </section>
 
@@ -816,6 +837,11 @@
           <div class="stack-block">
             <div class="stack-block-title">💻 Eng. de Software</div>
             <div class="stack-block-desc">Lógica de Programação, POO, Estrutura de Dados</div>
+          </div>
+
+          <div class="stack-block">
+            <div class="stack-block-title">📐 Modelagem 3D & CAD</div>
+            <div class="stack-block-desc">Autodesk Fusion 360, AutoCAD (DWG/DXF) para prototipagem.</div>
           </div>
 
           <div class="stack-block">
